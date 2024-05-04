@@ -1,0 +1,46 @@
+.ratings {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "rating1 rating1"
+        "rating2 rating3";
+    gap: 1%;
+
+    .rating {
+        display: block;
+        height: 100%;
+        border: 2px solid white;
+        background-color: var(--background-color);
+        p {
+            margin: 10px auto;
+            width: 90%;
+        }
+        img {
+            padding: 10px;
+            width: 30%;
+        }
+    }
+
+    :nth-child(1) {
+        grid-area: rating1;
+    }
+    :nth-child(2) {
+        grid-area: rating2;
+    }
+    :nth-child(3) {
+        grid-area: rating3;
+    }
+    .score {
+        color: yellow;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .ratings {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "rating1"
+            "rating2"
+            "rating3";
+    }
+}

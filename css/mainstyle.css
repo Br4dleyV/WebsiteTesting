@@ -1,0 +1,167 @@
+:root {
+    --red: rgb(167, 24, 20);
+    --dark-red: rgb(42, 2, 0);
+    --hover-red: rgb(226, 33, 26);
+    --background-color: rgba(0, 0, 0, 0.5);
+}
+
+* {
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    color: white;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
+    place-items: center;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: 0.1s;
+    text-shadow: 0 5px 5px black;
+}
+
+h1 {
+    font-size: 22pt !important;
+}
+
+body {
+    display: grid;
+    background: url(../images/peter-miles-transparent.png),
+        radial-gradient(circle, var(--red), var(--dark-red));
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    grid-template-columns: 1500px;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+}
+
+header {
+    grid-area: header;
+    display: flex;
+    width: 100%;
+    nav {
+        width: 100%;
+        ul {
+            display: flex;
+            li {
+                font-size: 18pt;
+                font-weight: bolder;
+                display: flex;
+                width: 100%;
+                img {
+                    width: 150px;
+                }
+                .active {
+                    color: var(--hover-red);
+                }
+            }
+        }
+    }
+}
+
+main {
+    grid-area: main;
+    div {
+        display: grid;
+        grid-template-columns: 1200px;
+        img {
+            width: 50%;
+        }
+        div {
+            display: flex;
+        }
+        &.game-features {
+            display: grid;
+            grid-template-columns: 600px 600px;
+            div {
+                display: block;
+                width: 100%;
+                height: 100%;
+                img {
+                    border: 2px solid white;
+                }
+            }
+        }
+        .game-info a {
+            width: 100%;
+        }
+    }
+}
+
+footer {
+    grid-area: footer;
+    display: flex;
+    height: 3vw;
+}
+
+.button {
+    color: #fff;
+    margin: 10px;
+    padding: 1rem 3rem;
+    border-radius: 6px;
+    transform: skew(-10deg);
+    border: 2px solid var(--red);
+}
+
+.anims {
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.1) skew(-10deg);
+    }
+    &:active {
+        transform: scale(0.9);
+    }
+}
+
+.trailer {
+    margin: 2vw 0;
+    iframe {
+        width: 885px;
+        height: 500px;
+    }
+}
+
+@media screen and (max-width: 1500px) {
+    body {
+        gap: 5%;
+        grid-template-columns: 90%;
+    }
+
+    main {
+        div {
+            grid-template-columns: 90%;
+            &.game-features {
+                grid-template-columns: 45% 45%;
+            }
+        }
+    }
+
+    .trailer {
+        iframe {
+            width: 90%;
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    header nav ul {
+        :nth-child(3) {
+            display: none;
+        }
+    }
+}
+@media screen and (max-width: 600px) {
+    header nav ul {
+        display: block;
+        li {
+            margin: 15px 0;
+        }
+    }
+
+    .game-info div {
+        flex-direction: column;
+    }
+}
